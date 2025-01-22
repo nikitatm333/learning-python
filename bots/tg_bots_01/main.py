@@ -7,7 +7,7 @@ from app.handlers import user_router
 
 
 async def main():
-    bot = Bot(token='7857738086:AAEJ3dQBAckAmlaEyo5FRCEekgZqqb0OHjU')
+    bot = Bot(token=)
     dp = Dispatcher()
     dp.include_router(router=user_router)
     await dp.start_polling(bot)
