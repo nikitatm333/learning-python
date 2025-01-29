@@ -5,6 +5,7 @@ from aiogram.enums import ChatAction
 
 
 from app.keyboards import main_kb
+from app.keyboards import main_inline_kb
 
 user_router = Router()
 
@@ -18,7 +19,7 @@ async def cmd_start(message: Message):
 async def cmd_help(message: Message):
     await message.bot.send_chat_action(chat_id=message.from_user.id,
                                        action=ChatAction.TYPING)
-    await message.answer('Помоги!')
+    await message.answer('Помоги!', reply_markup=main_inline_kb)
 
 @user_router.message(F.photo)
 async def get_photo(message: Message):
