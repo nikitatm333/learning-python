@@ -21,6 +21,12 @@ async def cmd_help(message: Message):
                                        action=ChatAction.TYPING)
     await message.answer('Помоги!', reply_markup=main_inline_kb)
 
+@user_router.callback_query(F.data == "korzina")
+async def cmd_by(message: Message):
+    await message.bot.send_chat_action(chat_id=message.from_user.id,
+                                       action=ChatAction.TYPING)
+    await message.answer('Помоги!', reply_markup=main_inline_kb)
+
 @user_router.message(F.photo)
 async def get_photo(message: Message):
     await message.bot.send_chat_action(chat_id=message.from_user.id,
